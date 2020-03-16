@@ -1,0 +1,28 @@
+# Given two lines of strings (characters and numbers)
+# write a code to check if strings have the same charasters and numbers, but order does not matter
+# python code, checked on python version 3.7.3
+
+f = open('input.txt', 'r')
+line1 = list(f.readline().strip().lower())
+line2 = list(f.readline().strip().lower())
+
+def anagramm(str1, str2):
+    counter = 0 
+    
+    if len(str1) != len(str2):
+        return 0
+    for char in str1:
+        for char2 in str2:
+            if char2 == char:
+                str2.remove(char2)
+                break
+            else: 
+                continue
+                
+    if str2 == []:
+        return 1
+    else:
+        return 0 
+    
+answer = anagramm(line1, line2)
+print(answer)
